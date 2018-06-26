@@ -1,3 +1,31 @@
-<p>
-  sidebar works!
-</p>
+<div class="container">
+    <form>
+       <div *ngIf="categories">
+            <div class="form-group">
+                <label>Choose a category</label>
+                <select>
+                    <option selected>Choose...</option>
+                    <option *ngFor="let category of categories" value="{{ category.id }}">{{ category.name }}</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-check" *ngIf="icons">
+            <label>Choose an icon</label>
+            <div>
+                <label class="icons-sidebar" *ngFor="let icon of icons">
+                    <img src={{icon.imgRoute}} width="50px" height="50px">
+                    <input type="radio" class="form-check-input" name="icon" value="{{icon.imgName}}">
+                </label>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+
+    
+
+  
