@@ -13,7 +13,6 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DisplayComponent } from './display/display.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { ResultsComponent } from './results/results.component';
@@ -23,7 +22,6 @@ import { ResultsComponent } from './results/results.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DisplayComponent,
     SidebarComponent,
     HomeComponent,
     ResultsComponent
