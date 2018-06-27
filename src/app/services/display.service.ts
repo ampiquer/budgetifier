@@ -23,8 +23,13 @@ categories: Category[];
     this.cards = [];
   }
 
-  addCard(name: string): Promise<Card> {
-    const newCard = {id: null, name: name};
+  addCard(name: string, iconUrl: string): Promise<Card> {
+    const newCard = {
+      id: null,
+      name: name,
+      iconUrl: iconUrl
+    };
+      
     CARDS.push(newCard);
     return Promise.resolve(newCard);
   }

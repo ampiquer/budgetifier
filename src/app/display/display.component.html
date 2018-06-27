@@ -14,8 +14,11 @@
                 <mat-grid-tile *ngFor="let card of cards" appHighlight>
                     <mat-grid-tile-header>
                         <h1 md-line>{{card.name | uppercase }}</h1>
+                        
 
                     </mat-grid-tile-header>
+                    <div>                <img src="{{card.iconUrl}}"/>
+                    </div>
                     <mat-grid-tile-footer>
                         <input placeholder="£ 00.00" type="number" name="pounds" required>
                     </mat-grid-tile-footer>

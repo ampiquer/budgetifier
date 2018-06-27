@@ -23,6 +23,7 @@ export class SidebarComponent implements OnInit {
     categories: Category[];
     
     selectedCategoryName: string;
+    selectedIconUrl: string;
 
     icons: Icon[];
     
@@ -45,12 +46,16 @@ export class SidebarComponent implements OnInit {
     
     }
     
-onCategorySelect(categoryName: string) {
-    this.selectedCategoryName = categoryName;
-}
+    onCategorySelect(categoryName: string) {
+        this.selectedCategoryName = categoryName;
+    }
+
+    onIconSelect(iconUrl: string) {
+        this.selectedIconUrl = iconUrl;
+    }
     
     addToCards() {
-    this.displayService.addCard(this.selectedCategoryName).then(result => {
+    this.displayService.addCard(this.selectedCategoryName, this.selectedIconUrl).then(result => {
         this.card = result
     });
     }
