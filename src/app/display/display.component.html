@@ -1,0 +1,29 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+    
+    <div fxFlex>
+        <div>
+            <h3>Trying it out!</h3>
+            <hr>
+        </div>
+    </div>
+    
+    <div fxFlex *ngIf="cards">
+        <form>
+            <mat-grid-list cols="2" rowHeight="200px">
+
+                <mat-grid-tile *ngFor="let card of cards" appHighlight>
+                    <!--<img height="200px" src="{{BaseURL + dish.image}}" alt="{{dish.name}}">-->
+                    <mat-grid-tile-header>
+                        <h1 md-line>{{category.name | uppercase }}</h1>
+
+                    </mat-grid-tile-header>
+                    <mat-grid-tile-footer>
+                        <input placeholder="£ 00.00" type="number" name="pounds" required>
+                    </mat-grid-tile-footer>
+                </mat-grid-tile>
+            </mat-grid-list>
+            
+        </form>
+    </div>
+</div>
+    

@@ -16,6 +16,13 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { ResultsComponent } from './results/results.component';
+import { DisplayComponent } from './display/display.component';
+
+import { CategoryService } from './services/category.service';
+import { IconService } from './services/icon.service';
+import { DisplayService } from './services/display.service';
+import { DataService } from './services/data.service';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +31,8 @@ import { ResultsComponent } from './results/results.component';
     FooterComponent,
     SidebarComponent,
     HomeComponent,
-    ResultsComponent
+    ResultsComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,12 @@ import { ResultsComponent } from './results/results.component';
     MatButtonModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [
+      CategoryService,
+        IconService,
+      DisplayService,
+      DataService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
