@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Category } from '../shared/category';
 import { CATEGORIES } from '../shared/categories';
+import { Card } from '../shared/card';
 
 import { Icon } from '../shared/icon';
 import { ICONS } from '../shared/icons';
@@ -17,22 +18,22 @@ import { DisplayService } from '../services/display.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-
 export class SidebarComponent implements OnInit {
     
     categories: Category[];
     
-    category: Category;
+    selectedCategoryName: string;
 
     icons: Icon[];
     
-    card: boolean;
+    card: Card;
 
-    constructor(private categoryService:CategoryService,
-private iconService: IconService,
-    private displayService: DisplayService) { }
+    constructor(
+        private categoryService:CategoryService,
+        private iconService: IconService,
+        private displayService: DisplayService
+    ) { }
     
-
 
     ngOnInit() {
       
@@ -42,10 +43,15 @@ private iconService: IconService,
       this.iconService.getIcons()
       .then(icons => this.icons = icons);
     
+    }
+    
+onCategorySelect(categoryName: string) {
+    this.selectedCategoryName = categoryName;
 }
     
     addToCards() {
-    console.log('Adding to cards', this.category.id);
-    this.card = this.displayService.addCard(this.category.id);
+    this.displayService.addCard(this.selectedCategoryName).then(result => {
+        this.card = result
+    });
     }
 }

@@ -3,9 +3,9 @@
        <div *ngIf="categories">
             <div class="form-group">
                 <label>Choose a category</label>
-                <select>
+                <select (change)="onCategorySelect($event.target.value)">
                     <option selected>Choose...</option>
-                    <option *ngFor="let category of categories" value="{{ category.id }}">{{ category.name }}</option>
+                    <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
                 </select>
             </div>
         </div>
@@ -20,7 +20,7 @@
             </div>
         </div>
         
-        <button type="submit" class="btn btn-primary" (click)="addToCards()">Submit</button>
+        <button type="button" class="btn btn-primary" (click)="addToCards()">Submit</button>
     </form>
 
 </div>

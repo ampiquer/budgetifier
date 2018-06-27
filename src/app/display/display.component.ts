@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DisplayService } from '../services/display.service';
 
-import { Category } from '../shared/category';
+import { Card } from '../shared/card';
 import { CATEGORIES } from '../shared/categories';
 
 import { Observable } from 'rxjs/Observable';
@@ -18,14 +18,19 @@ import { of } from 'rxjs/observable/of';
 })
 export class DisplayComponent implements OnInit {
     
-cards: Category[];
+    cards: Card[];
 
-constructor(private displayservice: DisplayService) { }
+    constructor(private displayservice: DisplayService) { }
 
-ngOnInit() {}
-    
-getCards(): Observable<any[]> {
-    return of(this.cards);
-}
+    ngOnInit() {
+        this.displayservice.getCards().then(result => {
+            this.cards = result;
+        });
+
+    }
+
+    getCards(): Observable<any[]> {
+        return of(this.cards);
+    }
 }
 
