@@ -14,7 +14,7 @@
                 <mat-grid-tile *ngFor="let card of cards" appHighlight>
                     <mat-grid-tile-header>
                         <h1 md-line>{{card.name | uppercase }}</h1>
-                        
+                        <button type="button" class="close" (click)="removeCard(card.id)">&times;</button>
 
                     </mat-grid-tile-header>
                     <div>                <img src="{{card.iconUrl}}"/>

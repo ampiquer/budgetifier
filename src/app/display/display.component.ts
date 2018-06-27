@@ -32,5 +32,13 @@ export class DisplayComponent implements OnInit {
     getCards(): Observable<any[]> {
         return of(this.cards);
     }
+    
+removeCard(id:number) {
+    
+    this.displayservice.removeCard(id).then(result => {
+            this.cards = result;
+        });
+
+}
 }
 
