@@ -7,7 +7,7 @@ import { CATEGORIES } from '../shared/categories';
 
 import { Observable } from 'rxjs/Observable';
 
-import 'rxjs/add/observable/of';
+import { of } from 'rxjs/observable/of';
 
 
 
